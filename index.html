@@ -15,201 +15,279 @@
         .text-subtle { color: #6b7280; }
         .border-subtle { border-color: #e5e7eb; }
         .avoid-page-break { page-break-inside: avoid; }
+
+        .lang-en { display: none !important; }
+        body.show-en .lang-es { display: none !important; }
+
+
+        body.show-en .lang-en { display: inline !important; }
+        body.show-en div.lang-en { display: block !important; }
+        body.show-en li.lang-en { display: list-item !important; }
+        body.show-en td.lang-en { display: table-cell !important; }
         
         @media print {
             body { background-color: white; }
             .resume-template-11 { box-shadow: none; border: none; }
+            .no-print { display: none !important; }
         }
     </style>
 </head>
 <body>
 
-<div class="max-w-4xl mx-auto overflow-hidden py-9 leading-normal text-black resume-template-11 shadow-lg" style="background-color: white;">
-    <div>
-        <div class="flex items-center px-12">
-            <img src="assets/CV-img-center.jpg" 
-                 class="object-cover mr-6 w-32 rounded aspect-square shadow-sm" alt="Foto de Perfil">
-            <div>
-                <div class="pb-2 text-2xl font-bold" style="color: rgb(63, 114, 175);">Paul Joseph Quintero Caraballo</div>
-                <div class="flex flex-wrap gap-4 text-sm font-medium text-subtle">
-                    <span class="flex gap-1 items-center">📧 pjosephqc2000@gmail.com</span>
-                    <span class="flex gap-1 items-center">📞 (+58) 4241267518</span>
-                    <span class="flex gap-1 items-center">📍 Caracas, 1011, Venezuela</span>
-                    <a class="flex gap-1 items-center text-blue-600 no-underline" href="https://www.linkedin.com/in/paul-joseph-quintero-caraballo-53437b309" target="_blank">
-                        🔗 LinkedIn
-                    </a>
-                    <a class="flex gap-1 items-center text-gray-700 hover:text-black no-underline transition-colors" href="https://github.com/zackFailer" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        <span class="text-blue-600">GitHub</span>
-                    </a>
+    <div class="fixed top-4 right-4 no-print flex gap-2 z-50">
+        <button onclick="changeLang('es')" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg shadow-md font-bold hover:bg-gray-200 transition">ES</button>
+        <button onclick="changeLang('en')" class="bg-slate-800 text-white px-4 py-2 rounded-lg shadow-md font-bold hover:bg-slate-600 transition">EN</button>
+    </div>
+
+    <div class="max-w-4xl mx-auto overflow-hidden py-9 leading-normal text-black resume-template-11 shadow-lg" style="background-color: white;">
+        <div>
+            <div class="flex items-center px-12">
+                <img src="assets/CV-img-center.jpg" 
+                    class="object-cover mr-6 w-32 rounded aspect-square shadow-sm" alt="Foto de Perfil">
+                <div>
+                    <div class="pb-2 text-2xl font-bold" style="color: rgb(63, 114, 175);">Paul Joseph Quintero Caraballo</div>
+                    <div class="flex flex-wrap gap-4 text-sm font-medium text-subtle">
+                        <span class="flex gap-1 items-center">📧 pjosephqc2000@gmail.com</span>
+                        <span class="flex gap-1 items-center">📞 (+58) 4241267518</span>
+                        <span class="flex gap-1 items-center">📍 Caracas, 1011, Venezuela</span>
+                        <a class="flex gap-1 items-center text-blue-600 no-underline" href="https://www.linkedin.com/in/paul-joseph-quintero-caraballo-53437b309" target="_blank">
+                            🔗 LinkedIn
+                        </a>
+                        <a class="flex gap-1 items-center text-gray-700 hover:text-black no-underline transition-colors" href="https://github.com/zackFailer" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            <span class="text-blue-600">GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-12 my-4 h-px bg-subtle"></div>
+        </div>
+
+        <div class="px-12 pb-4 avoid-page-break">
+            <div class="pb-2 text-base font-semibold uppercase text-gray-700">
+                <span class="lang-es"> Resumen </span>
+                <span class="lang-en "> Summary </span>
+            </div>
+            <div class="text-sm text-gray-800 leading-relaxed text-justify">
+                <span class="lang-es">Desarrollador front-end con experiencia en la creación de interfaces efectivas utilizando Angular y Figma.
+                Experiencia en el desarrollo de aplicaciones multiplataforma y colaboración en equipo, logrando una integración fluida de APIs.
+                Me destaco por liderar el diseño y prototipado, y he generado incrementos significativos en la eficiencia del desarrollo mediante la gestión eficiente de tickets en Azure DevOps.
+                Listo para aportar habilidades únicas que optimicen los procesos en el entorno laboral.</span>
+                <span class="lang-en hidden">Front-end developer with experience in creating effective interfaces using Angular and Figma.
+                Experience in developing cross-platform applications and team collaboration, achieving seamless API integration.
+                I excel in leading design and prototyping, and have generated significant increases in development efficiency through efficient ticket management in Azure DevOps.
+                Ready to contribute unique skills that optimize processes in the work environment.</span>
+            </div>
+        </div>
+
+        <div class="px-12">
+            <div class="pt-4 border-t avoid-page-break border-subtle">
+                <div class="pb-2 text-base font-semibold uppercase text-gray-700">
+                    <span class="lang-es"> Experiencia laboral </span>
+                    <span class="lang-en hidden"> Work Experience </span>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="flex items-center font-semibold" style="color: rgb(63, 114, 175);">
+                        <span class="lang-es">Desarrollador front-end</span>
+                        <span class="lang-en hidden">Front-end Developer</span>
+                        <div class="mx-2 text-gray-200">|</div> ABSoftware
+                    </div>
+                    <div class="font-medium text-subtle text-xs">
+                        <span class="lang-es">05/2025 – Presente, Miranda, Venezuela</span>
+                        <span class="lang-en hidden">05/2025 – Present, Miranda, Venezuela</span>
+                    </div>
+                    <ul class="pl-4 mt-1 list-disc text-sm text-gray-800">
+                        <li class="lang-es"><strong>Diseño y Prototipado:</strong> Me encargo de dirigir la fase inicial de diseño utilizando Figma y Lovable.</li>
+                        <li class="lang-en hidden"><strong>Design and Prototyping:</strong> I am responsible for leading the initial design phase using Figma and Lovable.</li>
+                        <li class="lang-es"><strong>Desarrollo Frontend:</strong> Responsable de la creacion de componentes modulares con Angular.</li>
+                        <li class="lang-en hidden"><strong>Frontend Development:</strong> Responsible for creating modular components with Angular.</li>
+                        <li class="lang-es"><strong>Gestión:</strong> Colaboración con backend y gestión de tickets en Azure DevOps.</li>
+                        <li class="lang-en hidden"><strong>Management:</strong> Collaboration with backend and ticket management in Azure DevOps.</li>
+                    </ul>
+                </div>
+
+                <div class="mb-4">
+                    <div class="flex items-center font-semibold" style="color: rgb(63, 114, 175);">
+                        <span class="lang-es">Desarrollador full stack</span>
+                        <span class="lang-en hidden">Full Stack Developer</span>
+                        <span class="mx-2 text-gray-200">|</span> Inapymi
+                    </div>
+                    <div class="font-medium text-subtle text-xs">
+                        <span class="lang-es">09/2024 – 12/2024, Caracas, Venezuela</span>
+                        <span class="lang-en hidden">09/2024 – 12/2024, Caracas, Venezuela</span>
+                    </div>
+                    <ul class="pl-4 mt-1 list-disc text-sm text-gray-800">
+                        <li class="lang-es">Desarrollo de un aplicativo web para administración de arrendatarios con Laravel (PHP).</li>
+                        <li class="lang-en hidden">Development of a web application for tenant management using Laravel (PHP).</li>
+                        <li class="lang-es">Planificación de módulos y estructura de base de datos con ORM Eloquent.</li>
+                        <li class="lang-en hidden">Planning of modules and database structure with Eloquent ORM.</li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="mx-12 my-4 h-px bg-subtle"></div>
-    </div>
 
-    <div class="px-12 pb-4 avoid-page-break">
-        <div class="pb-2 text-base font-semibold uppercase text-gray-700">Resumen</div>
-        <div class="text-sm text-gray-800 leading-relaxed text-justify">
-            Desarrollador front-end con experiencia en la creación de interfaces efectivas utilizando Angular y Figma.
-            Experiencia en el desarrollo de aplicaciones multiplataforma y colaboración en equipo, logrando una integración fluida de APIs.
-            Me destaco por liderar el diseño y prototipado, y he generado incrementos significativos en la eficiencia del desarrollo mediante la gestión eficiente de tickets en Azure DevOps.
-            Listo para aportar habilidades únicas que optimicen los procesos en el entorno laboral.
-        </div>
-    </div>
-
-    <div class="px-12">
-        <div class="pt-4 border-t avoid-page-break border-subtle">
-            <div class="pb-2 text-base font-semibold uppercase text-gray-700">Experiencia laboral</div>
-            
-            <div class="mb-4">
+        <div class="px-12">
+            <div class="pt-4 border-t avoid-page-break border-subtle">
+                <div class="pb-2 text-base font-semibold uppercase text-gray-700">
+                    <span class="lang-es">Educación</span>
+                    <span class="lang-en hidden">Education</span>
+                </div>
                 <div class="flex items-center font-semibold">
-                    <span style="color: rgb(63, 114, 175);">Desarrollador front-end</span>
-                    <div class="mx-2 text-gray-200">|</div> ABSoftware
+                    <span class="lang-es" style="color: rgb(63, 114, 175);">Ingeniero en Informática</span>
+                    <span class="lang-en hidden" style="color: rgb(63, 114, 175);">Computer Engineer</span>
+                    <span class="mx-2 text-gray-200">|</span> <span class="lang-es"> UAH | Universidad Alejandro de Humboldt</span>
+                    <span class="lang-en hidden">UAH | Alejandro de Humboldt University</span>
                 </div>
-                <div class="font-medium text-subtle text-xs">05/2025 – Presente, Miranda, Venezuela</div>
-                <ul class="pl-4 mt-1 list-disc text-sm text-gray-800">
-                    <li><strong>Diseño y Prototipado:</strong> Me encargo de dirigir la fase inicial de diseño utilizando Figma y Lovable.</li>
-                    <li><strong>Desarrollo Frontend:</strong> Responsable de la creacion de componentes modulares con Angular.</li>
-                    <li><strong>Gestión:</strong> Colaboración con backend y gestión de tickets en Azure DevOps.</li>
-                </ul>
+                <div class="font-medium text-subtle text-xs">01/2019 – 11/2024, Miranda, Venezuela</div>
             </div>
+        </div>
 
-            <div class="mb-4">
-                <div class="flex items-center font-semibold">
-                    <span style="color: rgb(63, 114, 175);">Desarrollador full stack</span>
-                    <span class="mx-2 text-gray-200">|</span> Inapymi
+        <div class="px-12 pb-4">
+            <div class="pt-4 pb-2 text-base font-semibold uppercase border-t border-subtle text-gray-700">
+                <span class="lang-es">Conocimientos</span>
+                <span class="lang-en hidden">Skills</span>
+            </div>
+            <table class="w-full text-xs font-medium text-gray-700 border-separate border-spacing-y-2">
+                <tbody>
+                    <tr>
+                        <td class="align-top font-semibold text-gray-800 w-32">
+                            <span class="font-medium text-black">Frontend:</span>
+                        </td>
+                        <td class="text-center border-r border-l border-slate-400"> JavaScript </td>
+                        <td class="text-center border-r border-slate-400"> TypeScript </td>
+                        <td class="text-center border-r border-slate-400"> Angular </td>
+                        <td class="text-center border-r border-slate-400"> React </td>
+                        <td class="text-center border-r border-slate-400"> Tailwind CSS </td>
+                        <td class="text-center border-r border-slate-400"> Angular Material </td>
+                        <td class="text-center border-r border-slate-400"> Prime NG </td>
+                        <td class="text-center border-r border-slate-400"> Shadcn </td>     
+                    </tr>
+                    <tr>
+                        <td class="align-top font-semibold text-gray-800">
+                            <span class="font-medium text-black">Mobile:</span>
+                        </td>
+                        <td class="text-center border-r border-l border-slate-400"> Ionic </td>
+                        <td class="text-center border-r border-slate-400"> Capacitor </td>
+                    </tr>
+                    <tr>
+                        <td class="align-top font-semibold text-gray-800"><span class="font-medium text-black">Backend:</span></td>
+                        <td class="text-center border-r border-l border-slate-400"> Node.js </td>
+                        <td class="text-center border-r border-slate-400"> Express </td>
+                        <td class="text-center border-r border-slate-400"> PHP </td>
+                        <td class="text-center border-r border-slate-400"> Supabase </td>
+                        <td class="text-center border-r border-slate-400"> Strapi </td>
+                    </tr>
+                    <tr>
+                        <td class="align-top font-semibold text-gray-800"><span class="font-medium text-black">Base de Datos:</span></td>
+                        <td class="text-center border-r border-l border-slate-400"> MySQL </td>
+                        <td class="text-center border-r border-slate-400"> PostgreSQL </td>
+                        <td class="text-center border-r border-slate-400"> MongoDB </td>
+                        <td class="text-center border-r border-slate-400"> SQLite </td>
+                    </tr>
+                    <tr>
+                        <td class="align-top font-semibold text-gray-800"><span class="font-medium text-black">Herramientas:</span></td>
+                        <td class="text-center border-r border-l border-slate-400"> Git / GitHub </td>
+                        <td class="text-center border-r border-slate-400"> Azure DevOps </td>
+                        <td class="text-center border-r border-slate-400"> Figma </td>
+                        <td class="text-center border-r border-slate-400"> Lovable </td>
+                        <td class="text-center border-r border-slate-400"> Firebase </td>
+                        <td class="text-center border-r border-slate-400"> Copilot </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="px-12 pb-2">
+            <div class="pt-4 pb-2 text-base font-semibold uppercase border-t border-subtle text-gray-700">
+                <span class="lang-es">Idiomas</span>
+                <span class="lang-en">Languages</span>
+            </div>
+            <div class="flex flex-wrap">
+                <div class="pr-12 pb-2 w-1/2">
+                    <div class="flex text-sm">
+                        <div>
+                            <span class="mr-1 font-medium text-black lang-es">Español</span>
+                            <span class="mr-1 font-medium text-black lang-en hidden">Spanish</span>
+                            <span class="text-subtle lang-es">(Nativo)</span>
+                            <span class="text-subtle lang-en hidden">(Native)</span>
+                        </div>
+                        <span class="mx-2 text-gray-200">|</span>
+                        <div>
+                            <span class="mr-1 font-medium text-black lang-es">Inglés</span>
+                            <span class="mr-1 font-medium text-black lang-en hidden">English</span>
+                            <span class="text-subtle">B1</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="font-medium text-subtle text-xs">09/2024 – 12/2024, Caracas, Venezuela</div>
-                <ul class="pl-4 mt-1 list-disc text-sm text-gray-800">
-                    <li>Desarrollo de un aplicativo web para administración de arrendatarios con Laravel (PHP).</li>
-                    <li>Planificación de módulos y estructura de base de datos con ORM Eloquent.</li>
-                </ul>
+                <div class="overflow-hidden mt-1 h-1 rounded" style="width: 100%; background: rgb(63, 114, 175);"></div>
+            </div>
+        </div>
+
+        <div class="px-12 pb-2">
+            <div class="pt-4 pb-2 text-base font-semibold uppercase border-t border-subtle text-gray-700">
+                <span class="lang-es">Proyectos Destacados</span>
+                <span class="lang-en hidden">Featured Projects</span>
+            </div>
+            <div class="flex flex-wrap">
+                <div class="pr-12 pb-4 w-full">
+                    <div class="flex gap-4 text-sm">
+                        <div class="flex font-semibold">
+                            <span style="color: rgb(63, 114, 175); " class="lang-es">Plataforma de Gestión Logística e Impresión Térmica - LabelIa </span>
+                            <span style="color: rgb(63, 114, 175); " class="lang-en hidden">Logistics Management and Thermal Printing Platform - LabelIa </span>
+                            <span class="mx-2 text-gray-200">|</span><span>(ABSoftware)</span>
+                        </div>
+                    </div>
+                    <ul class="pl-4 mt-1 list-disc text-sm text-gray-800 text-justify">
+                        <li class="lang-es">Implementación de comunicación Bluetooth Low Energy (BLE) para la sincronización y control de hardware externo (impresoras portátiles).</li>
+                        <li class="lang-en hidden">Implementation of Bluetooth Low Energy (BLE) communication for synchronization and control of external hardware (portable printers).</li>
+                        <li class="lang-es">Diseño de arquitectura de etiquetado dinámico, permitiendo la generación de etiquetas desde el dispositivo móvil.</li>
+                        <li class="lang-en hidden">Design of dynamic labeling architecture, allowing label generation from the mobile device.</li>
+                        <li class="lang-es">Optimización de flujos de trabajo operativos mediante el diseño de módulos de administración de inventarios en Angular.</li>
+                        <li class="lang-en hidden">Optimization of operational workflows through the design of inventory management modules in Angular.</li>
+                        <li class="lang-es">Prototipado de alta fidelidad en Figma, enfocado en la usabilidad para entornos de trabajo rápido.</li>
+                        <li class="lang-en hidden">High-fidelity prototyping in Figma, focused on usability for fast-paced work environments.</li>
+                        <li class="lang-es">Trabajo simultaneo con el equipo de desarrollo backend para asegurar la coherencia y calidad del producto.</li>
+                        <li class="lang-en hidden">Simultaneous work with the backend development team to ensure product consistency and quality.</li>
+                        <li class="lang-es">Implementación de pruebas y depuración para asegurar la funcionalidad y estabilidad del aplicativo.</li>
+                        <li class="lang-en hidden">Implementation of testing and debugging to ensure application functionality and stability.</li>
+                    </ul>
+                </div>
+                <div class="pr-12 pb-4 w-full">
+                    <div class="flex gap-4 text-sm">
+                        <div class="flex font-semibold">
+                            <span style="color: rgb(63, 114, 175);" class="lang-es">Ecosistema Digital para Asistencia y Seguimiento en Tiempo Real - MotoAssist </span>
+                            <span style="color: rgb(63, 114, 175);" class="lang-en hidden">Digital Ecosystem for Real-Time Assistance and Tracking - MotoAssist </span>
+                            <span class="mx-2 text-gray-200">|</span><span>(ABSoftware)</span>
+                        </div>
+                    </div>
+                    <ul class="pl-4 mt-1 list-disc text-sm text-gray-800 text-justify">
+                        <li class="lang-es">Integración de servicios de geolocalización y mapas interactivos para el rastreo y asignación de servicios de asistencia.</li>
+                        <li class="lang-en hidden">Integration of geolocation services and interactive maps for tracking and assignment of assistance services.</li>
+                        <li class="lang-es">Desarrollo de un sistema de mensajería instantánea (Chat) integrado para la comunicación directa entre usuarios y operadores.</li>
+                        <li class="lang-en hidden">Development of an integrated instant messaging system (Chat) for direct communication between users and operators.</li>
+                        <li class="lang-es">Gestión de estados complejos en Angular para el manejo de eventos en tiempo real (estado de la asistencia, ubicación del conductor).</li>
+                        <li class="lang-en hidden">Management of complex states in Angular for handling real-time events (assistance status, driver location).</li>
+                        <li class="lang-es">Colaboración estrecha con el equipo de Backend para la definición de contratos de API enfocados en la baja latencia.</li>
+                        <li class="lang-en hidden">Close collaboration with the Backend team for defining API contracts focused on low latency.</li>
+                    </ul>
+
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="px-12">
-        <div class="pt-4 border-t avoid-page-break border-subtle">
-            <div class="pb-2 text-base font-semibold uppercase text-gray-700">Educación</div>
-            <div class="flex items-center font-semibold">
-                <span style="color: rgb(63, 114, 175);">Ingeniero en Informática</span>
-                <span class="mx-2 text-gray-200">|</span> UAH | Universidad Alejandro de Humboldt
-            </div>
-            <div class="font-medium text-subtle text-xs">01/2019 – 11/2024, Miranda, Venezuela</div>
-        </div>
-    </div>
-
-    <div class="px-12 pb-4">
-        <div class="pt-4 pb-2 text-base font-semibold uppercase border-t border-subtle text-gray-700">Conocimientos</div>
-        <table class="w-full text-xs font-medium text-gray-700 border-separate border-spacing-y-2">
-            <tbody>
-                <tr>
-                    <td class="align-top font-semibold text-gray-800 w-32">
-                        <span class="font-medium text-black">Frontend:</span>
-                    </td>
-                    <td class="text-center border-r border-l border-slate-400"> JavaScript </td>
-                    <td class="text-center border-r border-slate-400"> TypeScript </td>
-                    <td class="text-center border-r border-slate-400"> Angular </td>
-                    <td class="text-center border-r border-slate-400"> React </td>
-                    <td class="text-center border-r border-slate-400"> Tailwind CSS </td>
-                    <td class="text-center border-r border-slate-400"> Angular Material </td>
-                    <td class="text-center border-r border-slate-400"> Prime NG </td>
-                    <td class="text-center border-r border-slate-400"> Shadcn </td>     
-                </tr>
-                <tr>
-                    <td class="align-top font-semibold text-gray-800">
-                        <span class="font-medium text-black">Mobile:</span>
-                    </td>
-                    <td class="text-center border-r border-l border-slate-400"> Ionic </td>
-                    <td class="text-center border-r border-slate-400"> Capacitor </td>
-                </tr>
-                <tr>
-                    <td class="align-top font-semibold text-gray-800"><span class="font-medium text-black">Backend:</span></td>
-                    <td class="text-center border-r border-l border-slate-400"> Node.js </td>
-                    <td class="text-center border-r border-slate-400"> Express </td>
-                    <td class="text-center border-r border-slate-400"> PHP </td>
-                    <td class="text-center border-r border-slate-400"> Supabase </td>
-                    <td class="text-center border-r border-slate-400"> Strapi </td>
-                </tr>
-                <tr>
-                    <td class="align-top font-semibold text-gray-800"><span class="font-medium text-black">Base de Datos:</span></td>
-                    <td class="text-center border-r border-l border-slate-400"> MySQL </td>
-                    <td class="text-center border-r border-slate-400"> PostgreSQL </td>
-                    <td class="text-center border-r border-slate-400"> MongoDB </td>
-                    <td class="text-center border-r border-slate-400"> SQLite </td>
-                </tr>
-                <tr>
-                    <td class="align-top font-semibold text-gray-800"><span class="font-medium text-black">Herramientas:</span></td>
-                    <td class="text-center border-r border-l border-slate-400"> Git / GitHub </td>
-                    <td class="text-center border-r border-slate-400"> Azure DevOps </td>
-                    <td class="text-center border-r border-slate-400"> Figma </td>
-                    <td class="text-center border-r border-slate-400"> Lovable </td>
-                    <td class="text-center border-r border-slate-400"> Firebase </td>
-                    <td class="text-center border-r border-slate-400"> Copilot </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="px-12 pb-2">
-        <div class="pt-4 pb-2 text-base font-semibold uppercase border-t border-subtle text-gray-700">Idiomas</div>
-        <div class="flex flex-wrap">
-            <div class="pr-12 pb-2 w-1/2">
-                <div class="flex text-sm">
-                    <div>
-                        <span class="mr-1 font-medium text-black">Español</span>
-                        <span class="text-subtle">(Nativo)</span>
-                    </div>
-                    <span class="mx-2 text-gray-200">|</span>
-                    <div>
-                        <span class="mr-1 font-medium text-black">Ingles</span>
-                        <span class="text-subtle">B1</span>
-                    </div>
-                </div>
-            </div>
-            <div class="overflow-hidden mt-1 h-1 rounded" style="width: 100%; background: rgb(63, 114, 175);"></div>
-        </div>
-    </div>
-
-    <div class="px-12 pb-2">
-        <div class="pt-4 pb-2 text-base font-semibold uppercase border-t border-subtle text-gray-700">Proyectos Destacados</div>
-        <div class="flex flex-wrap">
-            <div class="pr-12 pb-4 w-full">
-                <div class="flex gap-4 text-sm">
-                    <div class="flex font-semibold">
-                        <span style="color: rgb(63, 114, 175);">Plataforma de Gestión Logística e Impresión Térmica - LabelIa </span>
-                        <span class="mx-2 text-gray-200">|</span><span>(ABSoftware)</span>
-                    </div>
-                </div>
-                <ul class="pl-4 mt-1 list-disc text-sm text-gray-800 text-justify">
-                    <li>Implementación de comunicación Bluetooth Low Energy (BLE) para la sincronización y control de hardware externo (impresoras portátiles).</li>
-                    <li>Diseño de arquitectura de etiquetado dinámico, permitiendo la generación de etiquetas desde el dispositivo móvil.</li>
-                    <li>Optimización de flujos de trabajo operativos mediante el diseño de módulos de administración de inventarios en Angular.</li>
-                    <li>Prototipado de alta fidelidad en Figma, enfocado en la usabilidad para entornos de trabajo rápido.</li>
-                    <li>Trabajo simultaneo con el equipo de desarrollo backend para asegurar la coherencia y calidad del producto.</li>
-                    <li>Implementación de pruebas y depuración para asegurar la funcionalidad y estabilidad del aplicativo.</li>
-                </ul>
-            </div>
-            <div class="pr-12 pb-4 w-full">
-                <div class="flex gap-4 text-sm">
-                    <div class="flex font-semibold">
-                        <span style="color: rgb(63, 114, 175);">Ecosistema Digital para Asistencia y Seguimiento en Tiempo Real - MotoAssist </span>
-                        <span class="mx-2 text-gray-200">|</span><span>(ABSoftware)</span>
-                    </div>
-                </div>
-                <ul class="pl-4 mt-1 list-disc text-sm text-gray-800 text-justify">
-                    <li>Integración de servicios de geolocalización y mapas interactivos para el rastreo y asignación de servicios de asistencia.</li>
-                    <li>Desarrollo de un sistema de mensajería instantánea (Chat) integrado para la comunicación directa entre usuarios y operadores.</li>
-                    <li>Gestión de estados complejos en Angular para el manejo de eventos en tiempo real (estado de la asistencia, ubicación del conductor).</li>
-                    <li>Colaboración estrecha con el equipo de Backend para la definición de contratos de API enfocados en la baja latencia.</li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
+    <script>
+        function changeLang(lang) {
+            if (lang === 'en') {
+                document.body.classList.add('show-en');
+            } else {
+                document.body.classList.remove('show-en');
+            }
+        }
+    </script>
 
 
 </body>
